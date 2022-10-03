@@ -1,7 +1,10 @@
+h1 {
+    text-align: center;
+}
+
 #main {
     height: 80%;
     width: 80%;
-    border: 1px solid black;
     padding: 50px;
     position: absolute;
     top: 50%;
@@ -11,11 +14,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-}
-
-#main > * {
-
 }
 
 #display {
@@ -26,12 +24,8 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
 }
-
-/* #display::-webkit-scrollbar {
-    
-} */
 
 ul {
     list-style: none;
@@ -39,26 +33,23 @@ ul {
     padding: 0;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
-    
-    margin: 10px;
 
-    min-height: 90%;
+    margin: 10px;
+    height: 90%;
     overflow-y: scroll;
 }
 
-/* ul::-webkit-scrollbar {
-    height: 90%
-} */
-
 #input {
-    height: 20%;
+    height: 10%;
     width: 100%;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin-top: 20px;
 }
 
 #input > * {

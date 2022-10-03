@@ -31,15 +31,21 @@ const checkItem = (item) => {
 }
 
 function createMorse(item){
-    // const api_url = `https://api.funtranslations.com/translate/morse.json?text=${item}`
-    // fetch(api_url)
-    //     .then(res => res.json())
-    //     .then(data => addItem(item, data.contents.translated))
-    addItem(item, "");
+    if (localStorage[`${item}`]){
+        addItem(`${item} ${localStorage[`${item}`]}`)
+    } else {
+        const api_url = `https://api.funtranslations.com/translate/morse.json?text=${item}`
+        fetch(api_url)
+            .then(res => res.json())
+            .then(data => {
+                let morse = data.contents.translated;
+                localStorage[`${item}`] = morse
+                addItem(`${item} ${morse}`)})
+    }
 }
 
-const addItem = (item, morse) => {
+const addItem = (item) => {
     let li = document.createElement('li');
-    li.innerText = `${item} ${morse}`;
-    list.appendChild(li);
+    li.innerText = item;
+    list.prepend(li);
 }
